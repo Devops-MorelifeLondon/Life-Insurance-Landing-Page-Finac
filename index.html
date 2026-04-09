@@ -45,13 +45,15 @@
   .topbar-badge.green { background: var(--teal); }
 
   /* ─── HEADER ─── */
-  header { background: var(--white); border-bottom: 1px solid var(--gray-200); padding: 14px 0; position: sticky; top: 0; z-index: 100; }
-  header .container { display: flex; justify-content: space-between; align-items: center; }
-  .logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--axis-blue); display: flex; align-items: center; gap: 10px; }
-  .logo .brand-sub { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; color: var(--gray-500); display: block; }
-  .header-cta { background: var(--axis-red); color: var(--white); padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: .2s; }
-  .header-cta:hover { background: #b81b21; }
-  .header-phone { font-weight: 600; color: var(--axis-blue); text-decoration: none; font-size: 15px; }
+  header { background: var(--white); border-bottom: 1px solid var(--gray-200); padding: 12px 0; position: sticky; top: 0; z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--axis-blue); display: flex; align-items: center; gap: 8px; flex: 1; min-width: 200px; }
+  .logo img { height: 36px; width: auto; }
+  .logo .brand-sub { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 500; color: var(--gray-500); display: block; line-height: 1.2; }
+  .header-nav { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+  .header-cta { background: var(--axis-red); color: var(--white); padding: 11px 22px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: .2s; white-space: nowrap; }
+  .header-cta:hover { background: #b81b21; transform: translateY(-1px); }
+  .header-phone { font-weight: 600; color: var(--axis-blue); text-decoration: none; font-size: 14px; white-space: nowrap; }
 
   /* ─── HERO ─── */
   .hero {
@@ -218,19 +220,101 @@
   footer a { color: var(--gold-light); text-decoration: none; }
 
   /* ─── RESPONSIVE ─── */
+  .container { width: 100%; }
+  .hero-badges { justify-content: flex-start; }
+  .plan-highlight-box { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+  .plan-highlight-box .pay { flex: 1 1 160px; min-width: 160px; }
+  .plan-highlight-box .arrow { font-size: 22px; margin: 0 16px; }
+  .plan-full-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+  .plan-full-grid ul { margin-bottom: 0; }
+  .plan-cta-row { margin-top: 18px; }
+  .areas-grid { display: grid; grid-template-columns: repeat(4, minmax(140px, 1fr)); gap: 10px; }
+  .faq-list { width: 100%; }
+  .faq-item { width: 100%; }
+  .cta-banner .btn-white { min-width: 220px; }
+  .whatsapp-btn { width: 56px; height: 56px; }
+
   @media (max-width: 900px) {
+    header .container { gap: 10px; }
+    .logo { min-width: 180px; font-size: 18px; }
+    .logo .brand-sub { font-size: 9px; }
+    .header-nav { flex: 1; justify-content: flex-end; min-width: 200px; }
     .hero .container { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 26px; }
+    .hero h1 { font-size: 32px; }
+    .hero-sub { font-size: 15px; }
     .plans-grid { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; }
     .who-grid { grid-template-columns: 1fr; }
     .steps-grid { grid-template-columns: repeat(2, 1fr); }
     .form-row { grid-template-columns: 1fr; }
+    .header-phone, .header-cta { width: 100%; text-align: center; }
+    .hero-badges { justify-content: center; }
+    .areas-grid { grid-template-columns: repeat(2, minmax(140px, 1fr)); }
   }
+
+  @media (max-width: 760px) {
+    header { padding: 10px 0; }
+    header .container { flex-direction: column; align-items: stretch; gap: 10px; }
+    .logo { min-width: 100%; font-size: 17px; }
+    .logo img { height: 32px; }
+    .logo .brand-sub { font-size: 8px; }
+    .header-nav { width: 100%; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+    .header-phone, .header-cta { flex: 1; min-width: 140px; text-align: center; padding: 10px 12px; font-size: 13px; }
+    .topbar .container { flex-direction: column; align-items: stretch; gap: 10px; }
+    .hero { padding: 48px 0 36px; }
+    .hero h1 { font-size: 28px; }
+    .hero-sub { font-size: 14px; }
+    .plan-highlight-box .pay { min-width: 0; }
+    .plan-highlight-box .arrow { margin: 12px 0; }
+    .plan-full-grid { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: 1fr; }
+    .trust-bar .container { gap: 16px; }
+  }
+
   @media (max-width: 600px) {
+    header { padding: 8px 0; }
+    .logo { font-size: 16px; gap: 6px; }
+    .logo img { height: 30px; }
+    .header-nav { gap: 6px; }
+    .header-phone { font-size: 12px; padding: 9px 10px; }
+    .header-cta { font-size: 12px; padding: 9px 16px; }
     .steps-grid { grid-template-columns: 1fr; }
-    .trust-bar .container { gap: 20px; }
     .plan-highlight-box { flex-direction: column; text-align: center; }
+    .plan-highlight-box .arrow { margin: 12px 0; }
+    .hero h1 { font-size: 24px; }
+    .hero-badges { gap: 10px; }
+    .section-title { font-size: 24px; }
+    .section-desc { font-size: 14px; max-width: 100%; }
+    .plan-card { padding: 22px 18px; }
+    .lead-form { padding: 24px 20px; }
+    .trust-item .number { font-size: 22px; }
+  }
+
+  @media (max-width: 480px) {
+    .topbar { font-size: 11px; padding: 6px 0; }
+    .topbar .container { flex-direction: column; align-items: center; gap: 6px; }
+    header { padding: 8px 0; }
+    .container { padding: 0 12px; }
+    .logo { font-size: 15px; gap: 5px; min-width: auto; }
+    .logo img { height: 28px; }
+    .logo .brand-sub { font-size: 7px; max-width: 140px; }
+    .header-nav { gap: 5px; justify-content: stretch; }
+    .header-phone { font-size: 11px; flex: 1; padding: 8px 8px; }
+    .header-cta { font-size: 11px; padding: 8px 14px; flex: 1; }
+    .hero { padding: 32px 0 24px; }
+    .hero h1 { font-size: 20px; line-height: 1.3; }
+    .hero-sub { font-size: 13px; }
+    .lead-form { padding: 20px 16px; }
+    .lead-form h3 { font-size: 18px; }
+    .btn-primary { padding: 12px; font-size: 14px; }
+    .section-title { font-size: 20px; }
+    .section-desc { font-size: 13px; }
+    .cta-banner { padding: 28px 0; }
+    .cta-banner h2 { font-size: 20px; }
+    .cta-banner p { font-size: 13px; }
+    .cta-banner .btn-white { width: 100%; max-width: 100%; padding: 12px 20px; font-size: 14px; }
+    footer { text-align: left; padding: 24px 0; }
+    footer p { margin-bottom: 8px; font-size: 11px; }
   }
 
   /* ─── WHATSAPP BUTTON ─── */
@@ -279,11 +363,11 @@
   <div class="container">
     <div class="logo">
       <a href="/">
-        <img src="logo.png" alt="Finacbooks Logo" style="height: 40px;">
+        <img src="logo.png" alt="Finacbooks Logo">
       </a>
       <span class="brand-sub">Independent Insurance Advisory Services, Delhi</span>
     </div>
-    <div style="display:flex;align-items:center;gap:18px;">
+    <div class="header-nav">
       <a href="tel:916393791261" class="header-phone">📞 916393791261</a>
       <a href="#quote-form" class="header-cta">Get Free Consultation</a>
     </div>
@@ -493,7 +577,7 @@
         <span class="plan-tag wealth">Wealth Creation</span>
         <h4>Smart Wealth Advantage Guarantee Plan</h4>
         <p class="plan-subtitle">Wealth Creation + Life Cover (Illustrative) — Subject to Policy Terms</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;">
+        <div class="plan-full-grid">
           <div>
             <div class="plan-highlight-box">
               <div class="pay">
@@ -509,7 +593,7 @@
               </div>
             </div>
           </div>
-          <ul style="margin-bottom:0;">
+          <ul>
             <li>Risk cover throughout policy term*</li>
             <li>Maturity benefit subject to T&C*</li>
             <li>Multiple maturity value options available*</li>
@@ -518,8 +602,8 @@
             <li>Independent advice for your long-term goals*</li>
           </ul>
         </div>
-        <div style="margin-top:18px;">
-          <a href="#quote-form" class="plan-btn" style="max-width:400px;">Get Consultation →</a>
+        <div class="plan-cta-row">
+          <a href="#quote-form" class="plan-btn">Get Consultation →</a>
         </div>
       </div>
     </div>
